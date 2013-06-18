@@ -116,6 +116,16 @@ namespace :db do
   task :version do
     puts "Current version: #{ActiveRecord::Migrator.current_version}"
   end
+
+  desc "Returns the current schema version number"
+  task :console do
+    system("psql #{DB_NAME}")
+  end
+
+  desc "Returns the current schema version number"
+  task :reload do
+    system("rake db:drop; rake db:create; rake db:migrate")
+  end
 end
 
 desc 'Start IRB with application environment loaded'
