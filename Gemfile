@@ -1,6 +1,9 @@
 source :rubygems
 
 # PostgreSQL driver
+# 
+ruby "1.9.3"
+
 gem 'pg'
 
 # Sinatra driver
@@ -24,3 +27,5 @@ group :test do
   gem 'faker'
   gem 'rspec'
 end
+
+gem 'rspec'
