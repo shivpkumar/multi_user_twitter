@@ -47,4 +47,7 @@ Twitter.configure do |config|
   config.consumer_secret = ENV['TWITTER_SECRET']
 end
 
-Sidekiq.redis = Redis.new($REDIS_CONFIG)
+# Sidekiq.redis = Redis.new($REDIS_CONFIG)
+
+uri = URI.parse(ENV["REDISTOGO_URL"])
+redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
