@@ -23,9 +23,14 @@ gem 'oauth'
 gem 'twitter'
 gem 'awesome_print'
 
+gem 'sidekiq'
+gem 'redis'
+
 group :test do
   gem 'faker'
   gem 'rspec'
 end
 
 gem 'rspec'
+
+gem 'slim'

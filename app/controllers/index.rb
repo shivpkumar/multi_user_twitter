@@ -24,5 +24,22 @@ get '/auth' do
               oauth_secret: @access_token.secret)
 
   erb :index
-  
+end
+
+post '/tweet' do
+  user = User.find_by_username(params[:username])
+  status = params[:tweet]
+  time = params[:time].to_i
+  user.tweet(status, time)
+  # begin
+  #   username = Twitter.client.user.username
+  #   Twitter.update(tweet)
+  # rescue Twitter::Error::Unauthorized, e
+  #   return "500"
+  # end  
+  # return "200"
+end
+
+get '/status/:jid' do |jid|
+  job_is_complete(jid)
 end
